@@ -1,0 +1,44 @@
+ 
+/* 
+   Copyright (c) 2013-2023 Ossoey. 
+   All rights reserved.
+*/
+
+/* Stylesheet for the Ossoey Segmentation */ 
+/* Styles authored by ebanga@ossoey.com/ebanga@homail.com */
+
+:root {
+   --main-head-color: #505050de;
+   --main-body--color: #ffffff;
+   --main-font-family: Arial, Helvetica, sans-serif;
+   --main-font-color: black;
+   --main-line-color: rgba(0, 217, 255, 0.787);
+
+   --table-head-color:rgba(54, 37, 4, 0.787);
+   --table-body-color1:rgba(0, 217, 255, 0.787);
+   --table-alternate-color2:rgb(255, 209, 73);
+   --table-font-family: Arial, Helvetica, sans-serif;
+   --table-font-color:rgba(54, 37, 4, 0.787);
+   
+   --h1-font-size: 24px;
+   --h2-font-size: 20px;
+ }
+
+*{
+  margin: 0; 
+  padding: 0;
+  box-sizing: border-box;  
+ }
+
+ #frame-id {
+
+ }
+
+@media (max-width:900px) {
+
+}
+
+
+
+
+

@@ -2,125 +2,114 @@
 const headerIniLogo = (headerObj)=>{
    
     headerObj.logotext = new HTMLComponent ( 
-     {tag:"h1", innerHTML:`EXPERIMENTS`, id:"logotext_id", classList:["logotext"]})                 
+     {tag:"h1", innerHTML:`EXPERIMENTS`, id:"logotext-id", classList:["logotext"]})                 
      
     headerObj.logotextainer = new HTMLContainer ( 
      {
-       container:{tag:"div", innerHTML:"", id:"logotextainer_id", classList:["logotextainer"]},
+       container:{tag:"div", innerHTML:"", id:"logotextainer-id", classList:["logotextainer"]},
        children:[headerObj.logotext]});
  
      headerObj.logomoduletext = new HTMLComponent ( 
-       {tag:"h2", innerHTML:`Accueil`, id:"logomoduletext_id", classList:["logomoduletext"]})                 
+       {tag:"h2", innerHTML:`Accueil`, id:"logomoduletext-id", classList:["logomoduletext"]})                 
   
      headerObj.logomoduletextainer = new HTMLContainer ( 
          {
-           container:{tag:"div", innerHTML:"", id:"logomoduletextainer_id", classList:["logomoduletextainer"]},
+           container:{tag:"div", innerHTML:"", id:"logomoduletextainer-id", classList:["logomoduletextainer"]},
            children:[headerObj.logomoduletext]});
          
      headerObj.logo = new HTMLContainer ( 
        {
-       container:{tag:"div", innerHTML:"", id:"logo_id", classList:["logo"]},
+       container:{tag:"div", innerHTML:"", id:"logo-id", classList:["logo"]},
        children:[headerObj.logotextainer, headerObj.logomoduletextainer ]}); 
 }
  
 const headerIniMenuButton = (headerObj)=>{
    
     headerObj.menubuttonin1 = new HTMLComponent ( 
-     {tag:"div", innerHTML:`--`, id:"menubuttonin1_id", classList:["menubuttoninner"]})                 
+     {tag:"div", innerHTML:`--`, id:"menubuttonin1-id", classList:["menubuttoninner"]})                 
      
     headerObj.menubuttonin2 = new HTMLComponent ( 
-     {tag:"div", innerHTML:`--`, id:"menubuttonin2_id", classList:["menubuttoninner"]})                 
+     {tag:"div", innerHTML:`--`, id:"menubuttonin2-id", classList:["menubuttoninner"]})                 
    
     headerObj.menubuttonin3 = new HTMLComponent ( 
-    {tag:"div", innerHTML:`--`, id:"menubuttonin3_id", classList:["menubuttoninner"]})                 
+    {tag:"div", innerHTML:`--`, id:"menubuttonin3-id", classList:["menubuttoninner"]})                 
               
     headerObj.menubutton = new HTMLContainer ( 
      {
-       container:{tag:"div", innerHTML:"", id:"menubutton_id", classList:["menubutton"]},
+       container:{tag:"div", innerHTML:"", id:"menubutton-id", classList:["menubutton"]},
       children:[headerObj.menubuttonin1,headerObj.menubuttonin2,headerObj.menubuttonin3]});
     
 }
 
-const headerIniNav = (headerObj,buttontag=`button`)=>{
+
     
-    headerObj.navbuttonhome = new HTMLComponent ( 
-         {tag:buttontag, innerHTML:`Home`, id:"navbuttonhome_id", classList:["navbutton"]})                 
+const headerNavButton = (moduleObj, content = {modulename:`Random`, moduleid:`random`,
+    iconsclasslist:["fas", "fa-ellipsis-h"],
+    description: `Here's the module random that decribe the following function`,
+    descriptionItems: [ `Elt1`,`Elt1`,`Elt2`]
+}) => {
+
+    const id = `-id`; 
+    
+    let moduleButtIcon = strConcat([content.moduleid, `NavButtomIcon`]);
+    
      
-     headerObj.navbuttonrandom = new HTMLComponent ( 
-        {tag:buttontag, innerHTML:`Random`, id:"navbuttonrandom_id", classList:["navbutton"]})                 
-       
-    headerObj.navbuttonmatrix = new HTMLComponent ( 
-        {tag:buttontag, innerHTML:`Matrix`, id:"navbuttonmatrix_id", classList:["navbutton"]})                 
-          
-
-    headerObj.navbuttonsegmentation = new HTMLComponent ( 
-        {tag:buttontag, innerHTML:`Segmentation`, id:"navbuttonsegmentation_id", classList:["navbutton"]})                 
-
-    headerObj.navbuttonvecmentation = new HTMLComponent ( 
-        {tag:buttontag, innerHTML:`Vecmentation`, id:"navbuttonvecmentation_id", classList:["navbutton"]})                 
-              
-                
-    headerObj.navlistbuttonhome = new HTMLContainer ( 
-        {
-       container:{tag:"li", innerHTML:"", id:"navlistbuttonhome_id", classList:["navlistbutton"]},
-       children:[ headerObj.navbuttonhome]});
-    
-    headerObj.navlistbuttonrandom = new HTMLContainer ( 
-        {
-         container:{tag:"li", innerHTML:"", id:"navlistbuttonrandom_id", classList:["navlistbutton"]},
-         children:[ headerObj.navbuttonrandom]});
-
-     headerObj.navlistbuttonmatrix = new HTMLContainer ( 
-        {
-            container:{tag:"li", innerHTML:"", id:"navlistbuttonmatrix_id", classList:["navlistbutton"]},
-            children:[ headerObj.navbuttonmatrix]});
+    moduleObj[content.moduleid] = {};
     
 
-        headerObj.navlistbuttonrandom = new HTMLContainer ( 
+    moduleObj[content.moduleid][moduleButtIcon]   = new HTMLComponent ( 
+     {tag:"div", innerHTML:``, id:strConcat([moduleButtIcon, id]), classList:content.iconsclasslist})                 
+     
+
+     let moduleTitleText = strConcat([content.moduleid, `NavTitletext`]);
+     moduleObj[content.moduleid][moduleTitleText] = new HTMLComponent ( 
+     {tag:"div", innerHTML:content.modulename, id:strConcat([moduleTitleText,id]), classList:[moduleTitleText]})                 
+
+
+     let navButton = strConcat([content.moduleid, `NavButton`]);
+
+     moduleObj[content.moduleid][navButton] = new HTMLContainer ( 
         {
-            container:{tag:"li", innerHTML:"", id:"navlistbuttonrandom_id", classList:["navlistbutton"]},
-            children:[ headerObj.navbuttonrandom]});
+       container:{tag:"div", innerHTML:"", id: strConcat([navButton,id]), classList:["navbutton"]},
+       children:[ moduleObj[content.moduleid][moduleButtIcon], moduleObj[content.moduleid][moduleTitleText] ]});
 
 
-
-    headerObj.navlistbuttonsegmentation = new HTMLContainer ( 
-        {
-        container:{tag:"li", innerHTML:"", id:"navlistbuttonsegmentation_id", classList:["navlistbutton"]},
-        children:[ headerObj.navbuttonsegmentation]});
-        
-    headerObj.navlistbuttonvecmentation = new HTMLContainer ( 
-        {
-            container:{tag:"li", innerHTML:"", id:"navlistbuttonvecmentation_id", classList:["navlistbutton"]},
-            children:[ headerObj.navbuttonvecmentation]});
+    let navListButton = strConcat([content.moduleid, `NavListButton`]);   
 
 
-
-   
-    headerObj.navul = new HTMLContainer ( 
-        {
-           container:{tag:"ul", innerHTML:"", id:"navul_id", classList:["navul"]},
-             children:[  headerObj.navlistbuttonhome , headerObj.navlistbuttonrandom,
-                        headerObj.navlistbuttonmatrix, headerObj.navlistbuttonsegmentation,
-                        headerObj.navlistbuttonvecmentation 
-            
-            ]});
+    moduleObj[content.moduleid][navListButton] = new HTMLContainer ( 
+    {
+    container:{tag:"li", innerHTML:"", id:strConcat([navListButton,id]), classList:["navlistbutton"]},
+    children:[  moduleObj[content.moduleid][navButton]]});
     
+    return moduleObj[content.moduleid][navListButton]; 
 
-    headerObj.nav = new HTMLContainer ( 
-        {
-            container:{tag:"nav", innerHTML:"", id:"nav_id", classList:["nav"]},
-                children:[ headerObj.navul ]});
-    
-                
 }
 
+const headerIniNav = (moduleObj)=>{
+    
+    let navbuttonItems = [];
+    Object.keys(modules_description).forEach(key => {
+        let navButton =  headerNavButton(moduleObj, modules_description[key]);
+        navbuttonItems.push(navButton);
+     });
+
+     moduleObj.navul = new HTMLContainer ({
+     container:{tag:"ul", innerHTML:"", id:"navul-id", classList:["navul"]},
+     children:navbuttonItems });     
+     
+     moduleObj.nav = new HTMLContainer ({
+     container:{tag:"nav", innerHTML:"", id:"nav-id", classList:["nav"]},
+     children:[ moduleObj.navul ]});
+
+}
 
 
 const headerIniMenu = (headerObj)=>{
                
     headerObj.menu = new HTMLContainer ( 
      {
-       container:{tag:"div", innerHTML:"", id:"menu_id", classList:["menu"]},
+       container:{tag:"div", innerHTML:"", id:"menu-id", classList:["menu"]},
       children:[headerObj.logo, headerObj.menubutton]});
     
 }
@@ -142,9 +131,9 @@ const headerIni = (headerObj)=>{
     headerIniMenuButton(headerObj);
     headerIniNav(headerObj); 
     headerIniMenu(headerObj);
-    document.querySelector('#header').appendChild( headerObj.menu.$);
-    document.querySelector('#header').appendChild( headerObj.nav.$);
-    headerEventsIni(headerObj);
+    document.querySelector('#header-id').appendChild( headerObj.menu.$);
+    document.querySelector('#header-id').appendChild( headerObj.nav.$);
+   // headerEventsIni(headerObj);
 
 }
 
