@@ -31,9 +31,17 @@
  }
 
  #frame-id {
-
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100vh; /* Adjust as needed */
  }
-
+ 
+ #frame-id > div {
+   margin: auto;
+ }
+ 
 @media (max-width:900px) {
 
 }
