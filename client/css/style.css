@@ -30,18 +30,38 @@
   box-sizing: border-box;  
  }
 
- #frame-id {
+ #menu-id {
+   display: flex;
+   justify-content: space-between;
+   padding: 5px 200px;
+ 
+ }
+
+ .menubutton {
    display: flex;
    flex-direction: column;
    justify-content: center;
-   align-items: center;
-   height: 100vh; /* Adjust as needed */
+   align-items: flex-end; /* Align the button at the right */
+   cursor: pointer;
+   padding: 5px;
  }
  
- #frame-id > div {
-   margin: auto;
+ .menubuttoninner {
+   width: 20px;
+   height: 2px;
+   background-color: black;
+   margin: 2px;
  }
  
+ #nav-id{
+   display: flex;
+   justify-content:end;
+   padding: 5px 100px;
+ 
+ }
+
+ 
+
 @media (max-width:900px) {
 
 }
