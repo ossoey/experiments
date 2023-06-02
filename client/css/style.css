@@ -33,7 +33,7 @@
  #menu-id {
    display: flex;
    justify-content: space-between;
-   padding: 5px 200px;
+   padding: 5px 20vw;
  
  }
 
@@ -56,13 +56,39 @@
  #nav-id{
    display: flex;
    justify-content:end;
-   padding: 5px 100px;
+   padding: 5px 20vw;
  
  }
 
+ #main-id {
+   display: flex;
+   justify-content: center;
+   
+ 
+ }
+
+ #home-main-id{
+   display: flex;
+   justify-content:space-between;
+   padding: 5px 10vw;
+ }
  
 
 @media (max-width:900px) {
+   #menu-id {
+      padding: 5px 2vw;
+    
+    }
+
+    #nav-id{
+      padding: 5px 2vw;
+    
+    }
+
+    #home-main-id{
+      display: block;
+      padding: 5px 2vw;
+    }
 
 }
 

@@ -5,6 +5,13 @@ let header = {},
 
 let modules_description = {};
 
+modules_description[`home`] = {modulename:`Home`, moduleid:`home`,
+      iconsclasslist:[],
+      description: `Home`,
+      descriptionItems: [ `Elt1`,`Elt1`,`Elt2`]
+}
+
+
  modules_description[`random`] = {modulename:`Random`, moduleid:`random`,
           iconsclasslist:["fas", "fa-random"],
           description: `Module Random`,
