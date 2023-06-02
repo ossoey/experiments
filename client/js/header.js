@@ -22,17 +22,19 @@ const headerIniLogo = (headerObj)=>{
        container:{tag:"div", innerHTML:"", id:"logo-id", classList:["logo"]},
        children:[headerObj.logotextainer, headerObj.logomoduletextainer ]}); 
 }
+
+
  
 const headerIniMenuButton = (headerObj)=>{
    
     headerObj.menubuttonin1 = new HTMLComponent ( 
-     {tag:"div", innerHTML:`--`, id:"menubuttonin1-id", classList:["menubuttoninner"]})                 
+     {tag:"div", innerHTML:``, id:"menubuttonin1-id", classList:["menubuttoninner"]})                 
      
     headerObj.menubuttonin2 = new HTMLComponent ( 
-     {tag:"div", innerHTML:`--`, id:"menubuttonin2-id", classList:["menubuttoninner"]})                 
+     {tag:"div", innerHTML:``, id:"menubuttonin2-id", classList:["menubuttoninner"]})                 
    
     headerObj.menubuttonin3 = new HTMLComponent ( 
-    {tag:"div", innerHTML:`--`, id:"menubuttonin3-id", classList:["menubuttoninner"]})                 
+    {tag:"div", innerHTML:``, id:"menubuttonin3-id", classList:["menubuttoninner"]})                 
               
     headerObj.menubutton = new HTMLContainer ( 
      {
@@ -110,7 +112,7 @@ const headerIniMenu = (headerObj)=>{
     headerObj.menu = new HTMLContainer ( 
      {
        container:{tag:"div", innerHTML:"", id:"menu-id", classList:["menu"]},
-      children:[headerObj.logo, headerObj.menubutton]});
+      children:[headerObj.logo,headerObj.menubutton]});
     
 }
 
@@ -128,6 +130,7 @@ const headerEventsIni = (headerObj)=>{
 const headerIni = (headerObj)=>{
    
     headerIniLogo(headerObj);
+    
     headerIniMenuButton(headerObj);
     headerIniNav(headerObj); 
     headerIniMenu(headerObj);
