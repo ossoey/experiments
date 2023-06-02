@@ -1,5 +1,5 @@
 
-
+const id = `-id`; 
 const homeBlockModuleButton = (homeObj, content = {modulename:`Random`, moduleid:`random`,
          iconsclasslist:["fas", "fa-ellipsis-h"],
          description: `Here's the module random that decribe the following function`,
@@ -9,7 +9,7 @@ const homeBlockModuleButton = (homeObj, content = {modulename:`Random`, moduleid
 
     let moduleButtIcon = strConcat([content.moduleid, `ButtomIcon`]);
         
-    const id = `-id`; 
+ 
     
     homeObj[moduleButtIcon]   = new HTMLComponent ( 
      {tag:"h2", innerHTML:``, id:strConcat([moduleButtIcon, id]), classList:content.iconsclasslist})                 
@@ -71,12 +71,22 @@ const homeBlockModuleButton = (homeObj, content = {modulename:`Random`, moduleid
 
     document.querySelector('#main-id').innerHTML =``; 
 
+
     let navbuttonItems = [];
     Object.keys(modules_description).forEach(key => {
         let navButton = homeBlockModuleButton(homeObj, modules_description[key]);
-        document.querySelector('#main-id').appendChild(navButton.$);
+        navbuttonItems.push(navButton); 
+   //     document.querySelector('#main-id').appendChild(navButton.$);
      }); 
 
+      let home_main_str = 'home-main';
+
+     homeObj[home_main_str] = new HTMLContainer ( 
+      {
+          container:{tag:"div", innerHTML:"", id:strConcat([ home_main_str,id]), classList:[home_main_str]},
+          children:navbuttonItems});
+
+      document.querySelector('#main-id').appendChild(homeObj[home_main_str].$);
 
     
  }
