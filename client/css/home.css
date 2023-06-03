@@ -1,0 +1,40 @@
+ 
+/* 
+   Copyright (c) 2013-2023 Ossoey. 
+   All rights reserved.
+*/
+
+/* Stylesheet for the Ossoey Segmentation */ 
+/* Styles authored by ebanga@ossoey.com/ebanga@homail.com */
+
+
+
+ #home-main-id{
+   display: flex;
+   justify-content:space-between;
+   padding: 5px 10vw;
+ }
+ 
+
+@media (max-width:900px) {
+   #menu-id {
+      padding: 5px 2vw;
+    
+    }
+
+    #nav-id{
+      padding: 5px 2vw;
+    
+    }
+
+    #home-main-id{
+      display: block;
+      padding: 5px 2vw;
+    }
+
+}
+
+
+
+
+
