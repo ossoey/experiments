@@ -3,6 +3,12 @@ let header = {},
     footer = {};
     home = {};
 
+let info = {};
+info.appid = "experiments";
+info.appname = "Experiments";
+info.start = "2023";
+info.description = "Differents types of experimetation";
+
 let modules_description = {};
 
 modules_description[`home`] = {modulename:`Home`, moduleid:`home`,

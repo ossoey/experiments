@@ -7,31 +7,37 @@
 /* Stylesheet for the Ossoey Segmentation */ 
 /* Styles authored by ebanga@ossoey.com/ebanga@homail.com */
 
-
-
  #home-main-id{
-   display: flex;
-   justify-content:space-between;
-   padding: 5px 10vw;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal-sized columns */
+  grid-gap: 10px; /* Adjust the gap between items */
+
+   /* display: flex;
+   justify-content:space-between; */
+   padding: var(--main-padding)
  }
  
+ .home-button-module-title {
+  font-size: 25px;
+ }
+
+ .home-button-frame {
+   cursor: pointer;
+   padding: 20px;
+   background-color: brown;
+ }
 
 @media (max-width:900px) {
-   #menu-id {
-      padding: 5px 2vw;
-    
-    }
-
-    #nav-id{
-      padding: 5px 2vw;
-    
-    }
-
     #home-main-id{
       display: block;
-      padding: 5px 2vw;
+      padding: var(--header-padding--querymedia);
     }
 
+    .home-button-frame {
+
+      margin: 2px;
+    }
 }
 
 

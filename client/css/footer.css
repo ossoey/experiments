@@ -7,8 +7,24 @@
 /* Stylesheet for the Ossoey Segmentation */ 
 /* Styles authored by ebanga@ossoey.com/ebanga@homail.com */
 
-@media (max-width:900px) {
 
+#footer-id {
+ 
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  padding: var(--header-padding);
+}
+
+
+@media (max-width:900px) {
+  #footer-id {
+    padding: var(--header-padding--querymedia);
+    margin: var(--header-margin);
+  }
+  
 }
 
 

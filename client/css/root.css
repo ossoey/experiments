@@ -8,11 +8,17 @@
 /* Styles authored by ebanga@ossoey.com/ebanga@homail.com */
  
 :root {
+
+  --header-padding:5px 20vw;
+  --header-padding-querymedia:5px 2vw;
+  --header-margin: 0 2vh;
+
    --main-head-color: #505050de;
    --main-body--color: #ffffff;
    --main-font-family: Arial, Helvetica, sans-serif;
    --main-font-color: black;
    --main-line-color: rgba(0, 217, 255, 0.787);
+   --main-padding:5px 10vw;
 
    --table-head-color:rgba(54, 37, 4, 0.787);
    --table-body-color1:rgba(0, 217, 255, 0.787);
@@ -29,12 +35,13 @@
   padding: 0;
   box-sizing: border-box;  
  }
-
+ 
  #main-id {
   display: flex;
   justify-content: center;
   
 }
+
 
 
  

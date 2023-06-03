@@ -12,15 +12,15 @@
    display: flex;
    justify-content: space-between;
    padding: 5px 20vw;
- 
+  
  }
 
- 
+
  .menubutton {
    display: flex;
    flex-direction: column;
    justify-content: center;
-   align-items: flex-end; /* Align the button at the right */
+   align-items: flex-end;  
    cursor: pointer;
    padding: 5px;
  }
@@ -35,20 +35,26 @@
  #nav-id{
    display: flex;
    justify-content:end;
-   padding: 5px 20vw;
+   padding: var(--header-padding);
  
  }
 
+ .header-navlist-element{
+  cursor: pointer;
+  background-color: var(--main-line-color);
+  margin: 2px;
+ }
 
 
 @media (max-width:900px) {
    #menu-id {
-      padding: 5px 2vw;
+      padding: var(--header-padding--querymedia);
+      margin: var(--header-margin);
     
     }
 
     #nav-id{
-      padding: 5px 2vw;
+      padding: var(--header-padding--querymedia);
     
     }
 
