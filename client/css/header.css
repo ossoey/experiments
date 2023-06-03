@@ -1,0 +1,60 @@
+ 
+/* 
+   Copyright (c) 2013-2023 Ossoey. 
+   All rights reserved.
+*/
+
+/* Stylesheet for the Ossoey Segmentation */ 
+/* Styles authored by ebanga@ossoey.com/ebanga@homail.com */
+ 
+
+ #menu-id {
+   display: flex;
+   justify-content: space-between;
+   padding: 5px 20vw;
+ 
+ }
+
+ 
+ .menubutton {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-end; /* Align the button at the right */
+   cursor: pointer;
+   padding: 5px;
+ }
+ 
+ .menubuttoninner {
+   width: 20px;
+   height: 2px;
+   background-color: var(--main-line-color);
+   margin: 2px;
+ }
+ 
+ #nav-id{
+   display: flex;
+   justify-content:end;
+   padding: 5px 20vw;
+ 
+ }
+
+
+
+@media (max-width:900px) {
+   #menu-id {
+      padding: 5px 2vw;
+    
+    }
+
+    #nav-id{
+      padding: 5px 2vw;
+    
+    }
+
+}
+
+
+
+
+
