@@ -16,7 +16,7 @@ const homeBlockModuleButton = (homeObj, content = {modulename:`Random`, moduleid
      
      let moduleTitleText = strConcat([content.moduleid, `Titletext`]);
      homeObj[moduleTitleText] = new HTMLComponent ( 
-     {tag:"div", innerHTML:content.modulename, id:strConcat([moduleTitleText,id]), classList:[moduleTitleText]})                 
+     {tag:"div", innerHTML:content.modulename, id:strConcat([moduleTitleText,id]), classList:['home-button-module-title']})                 
 
 
      let moduleButtomtitle = strConcat([content.moduleid, `Title`]);
@@ -58,8 +58,13 @@ const homeBlockModuleButton = (homeObj, content = {modulename:`Random`, moduleid
 
      homeObj[moduleButtomFrame] = new HTMLContainer ( 
      {
-        container:{tag:"div", innerHTML:"", id:strConcat([ moduleButtomFrame ,id]), classList:[moduleButtomFrame ]},
+        container:{tag:"div", innerHTML:"", id:strConcat([ moduleButtomFrame ,id]), classList:['home-button-frame']},
         children:[ homeObj[moduleButtomtitle],  homeObj[moduleButtomImageFrame], homeObj[moduleButtomDescriptionFrame]   ]});
+
+        homeObj[moduleButtomFrame].$.addEventListener('click',(event)=>{
+           alert(content.moduleid);
+        }); 
+
 
      return homeObj[moduleButtomFrame];
 

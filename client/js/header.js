@@ -2,7 +2,7 @@
 const headerIniLogo = (headerObj)=>{
    
     headerObj.logotext = new HTMLComponent ( 
-     {tag:"h1", innerHTML:`EXPERIMENTS`, id:"logotext-id", classList:["logotext"]})                 
+     {tag:"h1", innerHTML:` ${info.appname}`, id:"logotext-id", classList:["logotext"]})                 
      
     headerObj.logotextainer = new HTMLContainer ( 
      {
@@ -10,7 +10,7 @@ const headerIniLogo = (headerObj)=>{
        children:[headerObj.logotext]});
  
      headerObj.logomoduletext = new HTMLComponent ( 
-       {tag:"h2", innerHTML:`Accueil`, id:"logomoduletext-id", classList:["logomoduletext"]})                 
+       {tag:"h2", innerHTML:modules_description[`home`].description, id:"logomoduletext-id", classList:["logomoduletext"]})                 
   
      headerObj.logomoduletextainer = new HTMLContainer ( 
          {
@@ -81,8 +81,14 @@ const headerNavButton = (moduleObj, content = {modulename:`Random`, moduleid:`ra
 
     moduleObj[content.moduleid][navListButton] = new HTMLContainer ( 
     {
-    container:{tag:"li", innerHTML:"", id:strConcat([navListButton,id]), classList:["navlistbutton"]},
+    container:{tag:"li", innerHTML:"", id:strConcat([navListButton,id]), classList:["header-navlist-element"]},
     children:[  moduleObj[content.moduleid][navButton]]});
+
+
+    moduleObj[content.moduleid][navListButton].$.addEventListener('click',(event)=>{
+      alert(content.moduleid);
+   });  
+
     
     return moduleObj[content.moduleid][navListButton]; 
 
