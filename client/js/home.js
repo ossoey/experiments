@@ -61,8 +61,13 @@ const homeBlockModuleButton = (homeObj, content = {modulename:`Random`, moduleid
         container:{tag:"div", innerHTML:"", id:strConcat([ moduleButtomFrame ,id]), classList:['home-button-frame']},
         children:[ homeObj[moduleButtomtitle],  homeObj[moduleButtomImageFrame], homeObj[moduleButtomDescriptionFrame]   ]});
 
-        homeObj[moduleButtomFrame].$.addEventListener('click',(event)=>{
-           alert(content.moduleid);
+
+
+        Object.keys(content.events).forEach(key => {
+
+         homeObj[moduleButtomFrame].$.addEventListener(key,(ev)=>{
+            content.events[key](content);
+         }); 
         }); 
 
 
