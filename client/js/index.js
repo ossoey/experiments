@@ -1,6 +1,7 @@
 
 let header = {},
     footer = {};
+    matrix = {};
     home = {};
 
 let info = {};
@@ -17,8 +18,8 @@ modules_description[`home`] = {modulename:`Home`, moduleid:`home`,
       descriptionItems: [ `Elt1`,`Elt1`,`Elt2`],
 
        events : {    click: (params) =>{
-
-                      alert(params.modulename);
+                      homeIni(home);
+               
                      },
 
                      mouseover: (params) =>{
@@ -38,7 +39,8 @@ modules_description[`home`] = {modulename:`Home`, moduleid:`home`,
 
            events : {    click: (params) =>{
 
-                      alert(params.modulename);
+                   
+                      clearHome();
                      },
 
                      mouseover: (params) =>{
@@ -56,8 +58,10 @@ modules_description[`home`] = {modulename:`Home`, moduleid:`home`,
           ,
 
            events : {    click: (params) =>{
-
-                      alert(params.modulename);
+    
+                  
+                      clearHome();
+                      matrixIni(); 
                      },
 
                      mouseover: (params) =>{
@@ -76,7 +80,8 @@ modules_description[`home`] = {modulename:`Home`, moduleid:`home`,
 
        events : {    click: (params) =>{
 
-                      alert('element');
+                   
+                      clearHome();
                      },
 
                      mouseover: (params) =>{
@@ -94,7 +99,8 @@ modules_description[`home`] = {modulename:`Home`, moduleid:`home`,
 
        events : {    click: (params) =>{
 
-                      alert(params.modulename);
+                     
+                      clearHome();
                      },
 
                      mouseover: (params) =>{
@@ -111,7 +117,8 @@ modules_description[`home`] = {modulename:`Home`, moduleid:`home`,
 
        events : {    click: (params) =>{
 
-                      alert(params.modulename);
+                     
+                      clearHome();
                      },
 
                      mouseover: (params) =>{
