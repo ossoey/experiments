@@ -65,6 +65,7 @@ const homeBlockModuleButton = (homeObj, content = {modulename:`Random`, moduleid
         children:[ homeObj[moduleButtomtitle],  homeObj[moduleButtomImageFrame], homeObj[moduleButtomDescriptionFrame]   ]});
 
 
+
         Object.keys(content.events).forEach(key => {
 
          homeObj[moduleButtomFrame].$.addEventListener(key,(ev)=>{
@@ -105,7 +106,7 @@ const homeBlockModuleButton = (homeObj, content = {modulename:`Random`, moduleid
  }
 
  const clearHome = () =>{
-  document.querySelector('#main-id').innerHTML = "";
+  homecontainer.innerHTML ="";
  }
  
  

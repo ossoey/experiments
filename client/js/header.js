@@ -85,11 +85,16 @@ const headerNavButton = (moduleObj, content = {modulename:`Random`, moduleid:`ra
     children:[  moduleObj[content.moduleid][navButton]]});
 
 
-    moduleObj[content.moduleid][navListButton].$.addEventListener('click',(event)=>{
-      alert(content.moduleid);
-   });  
 
-    
+    Object.keys(content.events).forEach(key => {
+
+      moduleObj[content.moduleid][navListButton].$.addEventListener(key,(ev)=>{
+         content.events[key](content);
+      }); 
+
+     }); 
+
+
     return moduleObj[content.moduleid][navListButton]; 
 
 }
