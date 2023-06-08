@@ -80,6 +80,81 @@ class HTMLContainer {
 }
 
 
+
+class HTMLInputText {
+  #params;
+  constructor(params = {input :{tag:"input" , type: "text", innerHTML:``, id:'input-id', classList:['inputcls']},
+  inputframe :{tag:"div", innerHTML:``, id:'inputframe-id', classList:['inputframecls']},
+  label :{tag:"div" , innerHTML:`Input Label`, id:'label-id', classList:['labelcls']},
+  labelframe :{tag:"div", innerHTML:``, id:'labelframe-id', classList:['labelframecls']}, 
+  frame :{tag:"div", innerHTML:``, id:'inputboxframe-id', classList:['inputboxframecls']},
+}) {
+              
+    this.#params = {input :{tag:"input" , type: "text", innerHTML:``, id:'input-id', classList:['inputcls']},
+    inputframe :{tag:"div", innerHTML:``, id:'inputframe-id', classList:['inputframecls']},
+    label :{tag:"div" , innerHTML:`Input Label`, id:'label-id', classList:['labelcls']},
+    labelframe :{tag:"div", innerHTML:``, id:'labelframe-id', classList:['labelframecls']}, 
+    frame :{tag:"div", innerHTML:``, id:'inputboxframe-id', classList:['inputboxframecls']},
+  }    ;
+   // Object.assign(this.#params,params);
+
+    Object.keys(this.#params).forEach(key => {
+
+      if (key in params) 
+                           Object.assign(this.#params[key],params[key]);
+    }); 
+
+       
+      this.input = new HTMLComponent ( this.#params.input);
+
+      this.inputFrame  = new HTMLContainer ( 
+        {
+          container:this.#params.inputframe ,
+          children:[this.input ]
+        });                
+      
+      this.label = new HTMLComponent ( this.#params.label);
+
+      this.labelframe  = new HTMLContainer ( 
+        {
+          container:this.#params.labelframe ,
+          children:[this.label]
+        }); 
+        
+        this.frame = new HTMLContainer ( 
+        {
+          container: this.#params.frame,
+          children:[this.labelframe, this.inputFrame ]
+        });   
+  }
+
+
+  _update(params = {input :{tag:"input" , type: "text", innerHTML:``, id:'input-id', classList:['inputcls']},
+    inputframe :{tag:"div", innerHTML:``, id:'inputframe-id', classList:['inputframecls']},
+    label :{tag:"div" , innerHTML:`Input Label`, id:'label-id', classList:['labelcls']},
+    labelframe :{tag:"div", innerHTML:``, id:'labelframe-id', classList:['labelframecls']}, 
+    frame :{tag:"div", innerHTML:``, id:'inputboxframe-id', classList:['inputboxframecls']},
+}) {
+       Object.assign(this.#params,params);
+
+       
+    
+  }
+
+  outParams() {
+    return Object.assign({},this.#params);
+  }
+  
+}
+
+
+
+let appendChildElements = (htmlElement, elements ) =>{
+  elements.forEach((elt)=>{
+    htmlElement.appendChild(elt)
+  });
+}
+
 // String utils
 
 let strConcat = (text = [`el1`,`elt2`,`elt3`]) =>{
@@ -90,65 +165,3 @@ let strConcat = (text = [`el1`,`elt2`,`elt3`]) =>{
     return result; 
 }
 
-
-// class HTMLNav {
-//   #params;
-  
-//   constructor(params = {
-//                  nav:{tag:"div", innerHTML:"",  classList:["nav_cls"], id:"cls_id"},
-//                  list:[ {tag:"li", innerHTML:"",  classList:["li_cls"], id:"li1_id"},
-//                         {tag:"li", innerHTML:"",  classList:["li_cls"], id:"li2_id"},
-//                         {tag:"li", innerHTML:"",  classList:["li_cls"], id:"li3_id"},
-//                         {tag:"li", innerHTML:"",  classList:["li_cls"], id:"li4_id"}],
-//                  elements:[ {tag:"button", innerHTML:"Segmentation",  classList:["but_cls"], id:"segbut_id"},
-//                  {tag:"button", innerHTML:"Vecmentation",  classList:["but_cls"], id:"vecbut_id"},
-//                  {tag:"button", innerHTML:"Indexation",  classList:["but_cls"], id:"indbut_id"},
-//                  {tag:"button", innerHTML:"Random",  classList:["but_cls"], id:"ranbut_id"},
-//                  {tag:"button", innerHTML:"Matrix",  classList:["but_cls"], id:"mstbut_id"}
-//                 ]
-
-//                 }) {
-              
-//     this.#params = {
-//       nav:{tag:"nav", innerHTML:"",  classList:["nav_cls"], id:"cls_id"},
-//       list:[ {tag:"li", innerHTML:"",  classList:["li_cls"], id:"li1_id"},
-//              {tag:"li", innerHTML:"",  classList:["li_cls"], id:"li2_id"},
-//              {tag:"li", innerHTML:"",  classList:["li_cls"], id:"li3_id"},
-//              {tag:"li", innerHTML:"",  classList:["li_cls"], id:"li4_id"}],
-//       elements:[ {tag:"button", innerHTML:"Segmentation",  classList:["but_cls"], id:"segbut_id"},
-//       {tag:"button", innerHTML:"Vecmentation",  classList:["but_cls"], id:"vecbut_id"},
-//       {tag:"button", innerHTML:"Indexation",  classList:["but_cls"], id:"indbut_id"},
-//       {tag:"button", innerHTML:"Random",  classList:["but_cls"], id:"ranbut_id"},
-//       {tag:"button", innerHTML:"Matrix",  classList:["but_cls"], id:"mstbut_id"}]};
-
-//     Object.assign(this.#params,params);
-
-//     this.list = [];
-
-//     this.#params.list.forEach((elt,index) =>{
-//       this.list.push(
-//         new HTMLContainer( {container:elt,
-//                             children:[new HTMLComponent( this.#params.elements[index])]   
-//         }))
-          
-//     });
-
-//     this.nav = new HTMLContainer( {container: this.#params.nav,
-//       children:this.list
-//     });
-
-
-//   }
-
-
-//   _update(params = {
-//     }) {
-//        Object.assign(this.#params,params);
-//   }
-
- 
-//   outParams() {
-//     return Object.assign({},this.#params);
-//   }
-  
-// }

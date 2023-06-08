@@ -3,31 +3,15 @@
 let matriccontainer;
 
 
-const textInPutModel = (params)=>{
-  return   new HTMLComponent ( 
-      {tag:"input" , type: "text", innerHTML:``, id:'gogo', classList:['fofo']})                 
-    
-    
-}
-
-const matrixMain = (params)=>{
-   matriccontainer = new HTMLContainer ( 
-      {
-        container:{tag:"div", innerHTML:"", id:"iii", classList:['echo']},
-        children:params.children });                
-     
-     
- }
- 
-
-
 
 const matrixIni = (moduleObj)=>{
      document.querySelector('#main-id').innerHTML ="";
-     let textin = textInPutModel();
-     matrixMain({children:[textin]});
      
-     document.querySelector('#main-id').appendChild(matriccontainer.$);
-     
+     let input = new HTMLInputText({input:{  size: "30"}});
+     let input1 = new HTMLInputText({input:{  size: "60"}, label :{innerHTML:`JJ colombe `}});
+     let input2 = new HTMLInputText({input:{  size: "23"}});
+
+
+     appendChildElements(document.querySelector('#main-id'), [input.frame.$,input1.frame.$,input2.frame.$]);
 }
 
