@@ -34,6 +34,7 @@
   font-size: 18px;
  }
 
+ 
 @media (max-width:900px) {
     #home-main-id{
       display: block;

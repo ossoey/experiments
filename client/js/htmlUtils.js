@@ -79,14 +79,13 @@ class HTMLContainer {
   
 }
 
-
-
 class HTMLInputText {
   #params;
   constructor(params = {input :{tag:"input" , type: "text", innerHTML:``, id:'input-id', classList:['inputcls']},
   inputframe :{tag:"div", innerHTML:``, id:'inputframe-id', classList:['inputframecls']},
   label :{tag:"div" , innerHTML:`Input Label`, id:'label-id', classList:['labelcls']},
   labelframe :{tag:"div", innerHTML:``, id:'labelframe-id', classList:['labelframecls']}, 
+
   frame :{tag:"div", innerHTML:``, id:'inputboxframe-id', classList:['inputboxframecls']},
 }) {
               
@@ -96,13 +95,17 @@ class HTMLInputText {
     labelframe :{tag:"div", innerHTML:``, id:'labelframe-id', classList:['labelframecls']}, 
     frame :{tag:"div", innerHTML:``, id:'inputboxframe-id', classList:['inputboxframecls']},
   }    ;
-   // Object.assign(this.#params,params);
+  
+    this.#assign(params);
+ 
+  }
 
+  #assign(params){
     Object.keys(this.#params).forEach(key => {
 
-      if (key in params) 
-                           Object.assign(this.#params[key],params[key]);
-    }); 
+      if (key in params)  Object.assign(this.#params[key],params[key]);
+            
+      }); 
 
        
       this.input = new HTMLComponent ( this.#params.input);
@@ -127,18 +130,74 @@ class HTMLInputText {
           children:[this.labelframe, this.inputFrame ]
         });   
   }
-
-
+   
   _update(params = {input :{tag:"input" , type: "text", innerHTML:``, id:'input-id', classList:['inputcls']},
     inputframe :{tag:"div", innerHTML:``, id:'inputframe-id', classList:['inputframecls']},
     label :{tag:"div" , innerHTML:`Input Label`, id:'label-id', classList:['labelcls']},
     labelframe :{tag:"div", innerHTML:``, id:'labelframe-id', classList:['labelframecls']}, 
     frame :{tag:"div", innerHTML:``, id:'inputboxframe-id', classList:['inputboxframecls']},
 }) {
-       Object.assign(this.#params,params);
+    this.#assign(params);
 
-       
-    
+  }
+
+  outParams() {
+    return Object.assign({},this.#params);
+  }
+  
+}
+
+
+
+class HTMLFieldsetInputs {
+  #params;
+  constructor(params = {inputs: [{input :{tag:"input" , type: "text", innerHTML:``, id:'input-id', classList:['inputcls']},
+                                  inputframe :{tag:"div", innerHTML:``, id:'inputframe-id', classList:['inputframecls']},
+                                  label :{tag:"div" , innerHTML:`Input Label`, id:'label-id', classList:['labelcls']},
+                                  labelframe :{tag:"div", innerHTML:``, id:'labelframe-id', classList:['labelframecls']}, 
+                                  frame :{tag:"div", innerHTML:``, id:'inputboxframe-id', classList:['inputboxframecls']}
+                                } , 
+                                {input :{tag:"input" , type: "text", innerHTML:``, id:'input-id', classList:['inputcls']},
+                                inputframe :{tag:"div", innerHTML:``, id:'inputframe-id', classList:['inputframecls']},
+                                label :{tag:"div" , innerHTML:`Input Label`, id:'label-id', classList:['labelcls']},
+                                labelframe :{tag:"div", innerHTML:``, id:'labelframe-id', classList:['labelframecls']}, 
+                                frame :{tag:"div", innerHTML:``, id:'inputboxframe-id', classList:['inputboxframecls']}
+                                } , 
+                                {input :{tag:"input" , type: "text", innerHTML:``, id:'input-id', classList:['inputcls']},
+                                inputframe :{tag:"div", innerHTML:``, id:'inputframe-id', classList:['inputframecls']},
+                                label :{tag:"div" , innerHTML:`Input Label`, id:'label-id', classList:['labelcls']},
+                                labelframe :{tag:"div", innerHTML:``, id:'labelframe-id', classList:['labelframecls']}, 
+                                frame :{tag:"div", innerHTML:``, id:'inputboxframe-id', classList:['inputboxframecls']}
+                               } , 
+                           ],
+                           fieldSet:{tag:"fieldSet" , innerHTML:"", id:'fieldSet-id', classList:['fieldSetcls']},
+                           legendcontent:{tag:"p", innerHTML:"legend Text", id:"legendcontent-id", classList:["legendcontentcls"]}
+                   
+}) {
+              
+
+     this.legendcontent = new HTMLComponent(params.legendcontent)
+
+     
+     this.legend  = new HTMLContainer (  {
+      container:params.fieldSet ,
+      children:[  this.legendcontent  ]});
+
+      let fieldsetChildren = [];
+      fieldsetChildren.push(this.legend);
+      params.inputs.forEach((elt)=>{
+        fieldsetChildren.push((new HTMLInputText({elt} )).frame) 
+      });
+ 
+      
+
+     this.fieldSet = new HTMLContainer (  {
+      container:params.fieldSet ,
+      children:fieldsetChildren});
+      
+  }
+ 
+  _update(params = {}) {
   }
 
   outParams() {
@@ -155,7 +214,7 @@ let appendChildElements = (htmlElement, elements ) =>{
   });
 }
 
-// String utils
+ 
 
 let strConcat = (text = [`el1`,`elt2`,`elt3`]) =>{
     let result = ``;
